@@ -88,3 +88,10 @@ Now you can use the schema on IPerson object that you got externally
 </li>
 
 </ul>
+
+
+
+<h2>Points of interest</h2>
+<ul>
+<li>Currently, only JSON schema is created and it is not used with ajv . for samples using ajv check <a href='https://github.com/NathanKr/json-schema-validator-js-playground'>here</a></li>
+<ul>
