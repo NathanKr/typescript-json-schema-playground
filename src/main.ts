@@ -1,7 +1,9 @@
 import "./style.css";
 import Ajv from "ajv";
-import IPerson from "./IPerson";
-import { personSchema, quizFromServerSchema } from "./schemas";
+import IPerson from "./interfaces/IPerson";
+// import { personSchema, quizFromServerSchema } from "./schemas";
+import personSchema from './schemas/IPerson.schema.json'
+import quizFromServerSchema from './schemas/IQuizFromServer.schema.json'
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
 app.innerHTML = `Hello Typescript`;
