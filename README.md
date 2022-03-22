@@ -1,5 +1,5 @@
 <h2>Motivation</h2>
-Experiment with typescript-json-schema to create a JSON schema. JSON schema validator like ajv uses JSON schema to dynamically validate an interface-based js object in the following use cases
+Experiment with typescript-json-schema to create a JSON schema. JSON schema validator like ajv uses JSON schema to dynamically type check \ validate an interface-based js object in the following use cases
 
 <ul>
 <li>a request object in an express server</li>
@@ -9,6 +9,10 @@ Experiment with typescript-json-schema to create a JSON schema. JSON schema vali
 
 <p>You may claim that you get JSON from the server and trust the server; thus, there is no need to dynamic validate JSON on the client. However, you should expect many bugs during development, and a bug can be the wrong JSON from the server. Therefore, if you do not validate the JSON on the app boundaries, you will get an error way downstream, and there it will take you much more effort in debugging.
 </p>
+
+<h2>High level Overview</h2>
+
+![Screenshot](./figs/json-schema.jpg)
 
 <h2>Benefits of dynamic type checking using json-schema</h2>
 
@@ -30,7 +34,8 @@ pass these attributes under the hood to the JSON schema
 <li>Most front-end developers omit dynamic type validation. So when a wrong JSON enters the client app boundaries, it's the server's fault. But now, using this effortless approach, the developer can implement dynamic type checks much more often.
 </li>
 <li>Performing dynamic type checks on JSON entering the application boundaries will increase the quality of your application.</li>
-
+<li>One can implement dynamic type check using json-schema on both client-side and server-side
+</li>
 
 <h2>Installation</h2>
 
