@@ -12,6 +12,10 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "legs",
+                "name"
+            ],
             "type": "object"
         }
     },
@@ -29,6 +33,10 @@
             "type": "array"
         }
     },
+    "required": [
+        "name",
+        "pets"
+    ],
     "type": "object"
 }
 

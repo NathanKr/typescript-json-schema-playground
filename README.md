@@ -88,11 +88,12 @@ interface IQuizFromServer {
 Create a schema per relevant interface
 
 ```
-npx typescript-json-schema .\src\interfaces\IPerson.ts IPerson --out .\src\schemas\IPerson.schema.json
-npx typescript-json-schema .\src\interfaces\IQuizFromServer.ts IQuizFromServer --out .\src\schemas\IQuizFromServer.schema.json
+npx typescript-json-schema .\src\interfaces\IPerson.ts IPerson --out .\src\schemas\IPerson.schema.json --required 
+npx typescript-json-schema .\src\interfaces\IQuizFromServer.ts IQuizFromServer --out .\src\schemas\IQuizFromServer.schema.json --required 
 ```
 
-put each schema in schemas.ts file
+<p>--out : put each schema in schemas.ts file</p>
+<p>--requires : add all non optiotinal properties to </p>
 </li>
 <li>
 validate object using a schema

@@ -11,6 +11,10 @@
                 },
                 "props": {}
             },
+            "required": [
+                "name",
+                "props"
+            ],
             "type": "object"
         },
         "QAMode": {
@@ -45,6 +49,12 @@
                     "$ref": "#/definitions/QuizType"
                 }
             },
+            "required": [
+                "categories",
+                "description",
+                "name",
+                "type"
+            ],
             "type": "object"
         },
         "default_2": {
@@ -129,11 +139,18 @@
                                         "type": "array"
                                     }
                                 },
+                                "required": [
+                                    "cfItems"
+                                ],
                                 "type": "object"
                             },
                             "type": "array"
                         }
                     },
+                    "required": [
+                        "correctAnsIndex",
+                        "values"
+                    ],
                     "type": "object"
                 },
                 "categories": {
@@ -143,6 +160,11 @@
                     "$ref": "#/definitions/default_4"
                 }
             },
+            "required": [
+                "answers",
+                "categories",
+                "question"
+            ],
             "type": "object"
         },
         "default_4": {
@@ -159,9 +181,16 @@
                             "type": "array"
                         }
                     },
+                    "required": [
+                        "cfItems"
+                    ],
                     "type": "object"
                 }
             },
+            "required": [
+                "mode",
+                "value"
+            ],
             "type": "object"
         }
     },
@@ -179,6 +208,11 @@
             "type": "array"
         }
     },
+    "required": [
+        "_id",
+        "head",
+        "items"
+    ],
     "type": "object"
 }
 
