@@ -3,7 +3,7 @@ import Ajv from "ajv";
 // import { personSchema, quizFromServerSchema } from "./schemas";
 import personSchema from './schemas/IPerson.schema.json'
 import quizFromServerSchema from './schemas/IQuizFromServer.schema.json'
-import { personBad1, personBad2, personGood, quizFromServerBad } from "./objects";
+import { personBad1,  personGood, quizFromServerGood } from "./objects";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
 app.innerHTML = `Hello Typescript`;
@@ -22,7 +22,7 @@ function validate(schema: object, obj: any): void {
 const ajv = new Ajv();
 
 validate(personSchema, personGood);
-validate(quizFromServerSchema, quizFromServerBad);
+validate(quizFromServerSchema, quizFromServerGood);
 validate(personSchema, personBad1);
-validate(personSchema, personBad2);
+// validate(personSchema, personBad2);
 
