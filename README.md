@@ -5,14 +5,14 @@ Experiment with typescript-json-schema to create a JSON schema. JSON schema vali
 <li>a request object in an express server</li>
 <li>a complex object from the server, e.g., quiz object in react app</li>
  <li>a quiz object in a test of react app</li>
-</ul> 
+</ul>
 
 <p>You may claim that you get JSON from the server and trust the server; thus, there is no need to dynamic validate JSON on the client. However, you should expect many bugs during development, and a bug can be the wrong JSON from the server. Therefore, if you do not validate the JSON on the app boundaries, you will get an error way downstream, and there it will take you much more effort in debugging.
 </p>
 
 <h2>High level Overview</h2>
 The result of the validator is boolean: valid or not and excellent error object in case not valid
- 
+
 
 ![Screenshot](./figs/json-schema.jpg)
 
@@ -51,7 +51,8 @@ npm i
 <li>
 Create an interface for an object to be validated.
 
-IPerson: we also have annotation. 
+IPerson: we also have annotation.
+
 <ul>
 <li>@maximum , @minimum</li>
 <li>@minLength , @maxLength</li>
@@ -59,7 +60,6 @@ IPerson: we also have annotation.
 
 </ul>
 Notice also nested interfaces
-
 
 ```ts
 interface IPet {
@@ -92,11 +92,10 @@ IQuizFromServer : complex interface including nesting
 
 ```ts
 interface IQuizFromServer {
-  _id : string;
-  head : IQuizHead;
+  _id: string;
+  head: IQuizHead;
   items: IQuizItemFromServer[];
 }
-
 ```
 
 </li>
@@ -105,13 +104,12 @@ interface IQuizFromServer {
 Create a schema per relevant interface using the following or create-schema script in package.json
 
 ```
-npx typescript-json-schema .\src\interfaces\IPerson.ts IPerson --out .\src\schemas\IPerson.schema.json --required 
-npx typescript-json-schema .\src\interfaces\IQuizFromServer.ts IQuizFromServer --out .\src\schemas\IQuizFromServer.schema.json --required 
+npx typescript-json-schema .\src\interfaces\IPerson.ts IPerson --out .\src\schemas\IPerson.schema.json --required
+npx typescript-json-schema .\src\interfaces\IQuizFromServer.ts IQuizFromServer --out .\src\schemas\IQuizFromServer.schema.json --required
 ```
 
 <p>--out : put each schema in schemas.ts file</p>
 <p>--requires : add all non optiotinal properties to </p>
-
 
 </li>
 <li>
@@ -134,8 +132,6 @@ function validate(schema: object, obj: any): void {
 
 </ul>
 
-
-
 <h2>Limitations</h2>
 <ul>
 <li>Creating a JSON schema and putting the schema _object_ in the schema file is currently manual.</li>
@@ -147,10 +143,9 @@ Manually creating schema can cause a risk of sync problems between the interface
 <ul>
 <li>Create a node application that uses typescript-json-schema via command line or API. The result is the creation of the schema and matching validator function.</li>
 <li>Invoke this node application before: dev, build, start script, ideally only in case of a change in the interface file</li>
-</ul> 
+</ul>
 
-BTW, a validator is created in this <a href='https://www.npmjs.com/package/typescript-json-validator'>package</a> but not clear how. Check <a href='https://github.com/NathanKr/typescript-json-validator-playground'>my repo</a> 
-
+BTW, a validator is created in this <a href='https://www.npmjs.com/package/typescript-json-validator'>package</a> but not clear how. Check <a href='https://github.com/NathanKr/typescript-json-validator-playground'>my repo</a>
 
 <h2>Open issues</h2>
 <ul>
