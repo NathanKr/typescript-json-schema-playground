@@ -1,12 +1,20 @@
 import "./style.css";
 import Ajv from "ajv";
 // import { personSchema, quizFromServerSchema } from "./schemas";
-import personSchema from './schemas/IPerson.schema.json'
-import quizFromServerSchema from './schemas/IQuizFromServer.schema.json'
-import { personBad1,  personGood, quizFromServerGood } from "./objects";
+import personSchema from "./schemas/IPerson.schema.json";
+import quizFromServerSchema from "./schemas/IQuizFromServer.schema.json";
+import {
+  personBadLegs,
+  personBadNameMax,
+  personBadNameMin,
+  personBadPetsMaxLen,
+  personBadPetsMinLen,
+  personGood,
+  quizFromServerGood,
+} from "./objects";
+import IPerson from "./interfaces/IPerson";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
-app.innerHTML = `Hello Typescript`;
 
 // --- todo nath obj should be interface
 function validate(schema: object, obj: any): void {
@@ -20,9 +28,15 @@ function validate(schema: object, obj: any): void {
 }
 
 const ajv = new Ajv();
-
 validate(personSchema, personGood);
 validate(quizFromServerSchema, quizFromServerGood);
-validate(personSchema, personBad1);
-// validate(personSchema, personBad2);
-
+const personsBad: IPerson[] = [
+  personBadLegs,
+  personBadNameMin,
+  personBadNameMax,
+  personBadPetsMinLen,
+  personBadPetsMaxLen
+];
+personsBad.forEach((person) => {
+  validate(personSchema, person);
+});

@@ -24,12 +24,18 @@
             "type": "number"
         },
         "name": {
+            "description": "Some description",
+            "maxLength": 5,
+            "minLength": 1,
             "type": "string"
         },
         "pets": {
+            "description": "Some description",
             "items": {
                 "$ref": "#/definitions/IPet"
             },
+            "maxItems": 4,
+            "minItems": 1,
             "type": "array"
         }
     },

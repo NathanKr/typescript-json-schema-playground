@@ -51,24 +51,41 @@ npm i
 <li>
 Create an interface for an object to be validated.
 
-IPerson: we also have @maximum @minimum annotation. Notice nested interfaces
+IPerson: we also have annotation. 
+<ul>
+<li>@maximum , @minimum</li>
+<li>@minLength , @maxLength</li>
+<li>@minItems , @maxItems</li>
+
+</ul>
+Notice also nested interfaces
 
 
 ```ts
 interface IPet {
-    name: string;
-    /**
-     * @minimum 1
-     * @maximum 100
-     */
-    legs: number;
-  }
-  
-  interface IPerson {
-    name: string;
-    age?: number;
-    pets: IPet[];
-  }
+  name: string;
+  /**
+   * @minimum 1
+   * @maximum 100
+   */
+  legs: number;
+}
+
+export default interface IPerson {
+  /**
+   * Some description
+   * @minLength 1
+   * @maxLength 5
+   */
+  name: string;
+  age?: number;
+  /**
+   * Some description
+   * @minItems 1
+   * @maxItems 4
+   */
+  pets: IPet[];
+}
 ```
 
 IQuizFromServer : complex interface including nesting
@@ -85,7 +102,7 @@ interface IQuizFromServer {
 </li>
 
 <li>
-Create a schema per relevant interface
+Create a schema per relevant interface using the following or create-schema script in package.json
 
 ```
 npx typescript-json-schema .\src\interfaces\IPerson.ts IPerson --out .\src\schemas\IPerson.schema.json --required 
@@ -94,6 +111,8 @@ npx typescript-json-schema .\src\interfaces\IQuizFromServer.ts IQuizFromServer -
 
 <p>--out : put each schema in schemas.ts file</p>
 <p>--requires : add all non optiotinal properties to </p>
+
+
 </li>
 <li>
 validate object using a schema

@@ -1,9 +1,34 @@
 import IPerson from "./interfaces/IPerson";
 
-export const personBad1: IPerson = {
-  // --- not valid : legs > 100
+export const personBadLegs: IPerson = {
   name: "Jim",
   pets: [{ name: "dog", legs: 111 }],
+};
+
+export const personBadNameMin: IPerson = {
+  name: "",
+  pets: [{ name: "dog", legs: 11 }],
+};
+
+export const personBadNameMax: IPerson = {
+  name: "toolong",
+  pets: [{ name: "dog", legs: 11 }],
+};
+
+export const personBadPetsMinLen: IPerson = {
+  name: "Jim",
+  pets: [],
+};
+
+export const personBadPetsMaxLen: IPerson = {
+  name: "jim",
+  pets: [
+    { name: "dog", legs: 11 },
+    { name: "dog", legs: 11 },
+    { name: "dog", legs: 11 },
+    { name: "dog", legs: 11 },
+    { name: "dog", legs: 11 },
+  ],
 };
 
 // export const personBad2: IPerson = {
