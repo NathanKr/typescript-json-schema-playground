@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "anyOf": [
+        {
+            "$ref": "#/definitions/I1"
+        },
+        {
+            "$ref": "#/definitions/I2"
+        }
+    ],
+    "definitions": {
+        "I1": {
+            "properties": {
+                "age": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "age",
+                "name"
+            ],
+            "type": "object"
+        },
+        "I2": {
+            "properties": {
+                "desc": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "pages": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "desc",
+                "name",
+                "pages"
+            ],
+            "type": "object"
+        }
+    }
+}
+
